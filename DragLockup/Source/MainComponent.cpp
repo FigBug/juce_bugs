@@ -29,7 +29,7 @@ void MainContentComponent::paint (Graphics& g)
     g.drawText ("Hello World!", getLocalBounds(), Justification::centred, true);
     
     g.setColour (Colours::pink);
-    g.fillEllipse (pt.getX() - 10, pt.getY() - 10, 20, 20);
+    g.fillEllipse (pt.getX() - 10.0f, pt.getY() - 10.0f, 20.0f, 20.0f);
 }
 
 void MainContentComponent::resized()

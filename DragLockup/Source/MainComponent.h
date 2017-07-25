@@ -25,13 +25,23 @@ public:
 
     void paint (Graphics&) override;
     void resized() override;
+    
     void handleAsyncUpdate() override
     {
-        Thread::sleep (1000);
+        Thread::sleep (250);
         repaint();
     }
-    void mouseDown (const MouseEvent&) override { beginDragAutoRepeat (10); }
-    void mouseDrag (const MouseEvent& e) override { triggerAsyncUpdate(); pt = e.getPosition(); }
+
+    void mouseDown (const MouseEvent&) override 
+    { 
+        beginDragAutoRepeat (10); 
+    }
+
+    void mouseDrag (const MouseEvent& e) override 
+    { 
+        triggerAsyncUpdate(); 
+        pt = e.getPosition(); 
+    }
 
 private:
     Point<int> pt;
