@@ -39,6 +39,8 @@ public:
 
     void mouseDrag (const MouseEvent& e) override 
     { 
+        DBG (String::formatted ("%d,%d", e.getPosition().getX(), e.getPosition().getY()));
+
         triggerAsyncUpdate(); 
         pt = e.getPosition(); 
     }
