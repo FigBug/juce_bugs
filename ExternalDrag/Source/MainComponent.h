@@ -55,12 +55,22 @@ public:
     class RowComp : public Component
     {
     public:
+        void mouseDown (const MouseEvent&) override
+        {
+            dragStarted = false;
+        }
+
         void mouseDrag (const MouseEvent&) override
         {
-            StringArray str;
-            str.add (f.getFullPathName());
+            if (! dragStarted)
+            {
+                dragStarted = true;
 
-            DragAndDropContainer::performExternalDragDropOfFiles (str, true, this);
+                StringArray str;
+                str.add (f.getFullPathName());
+
+                DragAndDropContainer::performExternalDragDropOfFiles (str, true, this);
+            }
         }
 
         void paint (Graphics& g) override
@@ -70,6 +80,7 @@ public:
         };
 
         File f;
+        bool dragStarted = false;
     };
 
     Array<File> files;
