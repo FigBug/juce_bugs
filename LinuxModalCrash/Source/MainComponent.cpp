@@ -8,6 +8,37 @@
 
 #include "MainComponent.h"
 
+struct PopupMenuCallback    : public PopupMenu::CustomCallback
+{
+    PopupMenuCallback (std::function<void()> fn, Component::SafePointer<Component> componentToWatch = nullptr)
+        : function (std::move (fn)), component (componentToWatch), checkComponent (componentToWatch != nullptr)
+    {
+        jassert (function);
+    }
+    
+    bool menuItemTriggered() override
+    {
+        if (! checkComponent || component != nullptr)
+            function();
+        
+        return false;
+    }
+    
+private:
+    std::function<void()> function;
+    Component::SafePointer<Component> component;
+    bool checkComponent = false;
+};
+
+static inline void addCustomCallback (PopupMenu& m, const String& text, std::function<void()> callback)
+{
+    PopupMenu::Item mi;
+    mi.text << text;
+    mi.itemID = -1;
+    mi.customCallback = new PopupMenuCallback (std::move (callback));
+    m.addItem (mi);
+}
+
 class AnotherWindow : public TopLevelWindow
 {
 public:
@@ -47,24 +78,24 @@ MainComponent::~MainComponent()
 void MainComponent::mouseUp (const MouseEvent&)
 {
     PopupMenu m;
-    m.addItem (1, "Crash");
+    addCustomCallback (m, "Crash",
+                           [&] {
+                               InterrupterComponent c ;
+                               addAndMakeVisible (&c);
+                               c.setBounds (getLocalBounds());
+                               
+                               int i = 500;
+                               while (--i > 0)
+                                   if (! MessageManager::getInstance()->runDispatchLoopUntil (10))
+                                       break;
+                               
+                               c.exitModalState (0);
+                               c.setVisible (false);
+                               
+                               aw = new AnotherWindow();
+                           });
     
-    if (m.show() == 1)
-    {
-        InterrupterComponent c ;
-        addAndMakeVisible (&c);
-        c.setBounds (getLocalBounds());
-        
-        int i = 500;
-        while (--i > 0)
-            if (! MessageManager::getInstance()->runDispatchLoopUntil (10))
-                break;
-        
-        c.exitModalState (0);
-        c.setVisible (false);
-        
-        aw = new AnotherWindow();
-    }
+    m.showMenu (PopupMenu::Options());
 }
 
 void MainComponent::paint (Graphics& g)
