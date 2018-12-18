@@ -33,43 +33,63 @@ MainComponent::MainComponent()
     Timer::callAfterDelay (100, [&]
                            {
                                AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+                               ModalComponentManager::getInstance()->bringModalComponentsToFront (false);
                            });
+    
     Timer::callAfterDelay (100, [&]
                            {
                                AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+                               ModalComponentManager::getInstance()->bringModalComponentsToFront (false);
                            });
+    
     Timer::callAfterDelay (100, [&]
                            {
                                AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+                               ModalComponentManager::getInstance()->bringModalComponentsToFront (false);
                            });
+    
     Timer::callAfterDelay (100, [&]
                            {
                                AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+                               ModalComponentManager::getInstance()->bringModalComponentsToFront (false);
                            });
+    
     Timer::callAfterDelay (100, [&]
                            {
                                AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+                               ModalComponentManager::getInstance()->bringModalComponentsToFront (false);
                            });
+    
     Timer::callAfterDelay (100, [&]
                            {
                                AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+                               ModalComponentManager::getInstance()->bringModalComponentsToFront (false);
                            });
+    
     Timer::callAfterDelay (100, [&]
                            {
                                AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+                               ModalComponentManager::getInstance()->bringModalComponentsToFront (false);
                            });
+    
     Timer::callAfterDelay (100, [&]
                            {
                                AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+                               ModalComponentManager::getInstance()->bringModalComponentsToFront (false);
                            });
+    
     Timer::callAfterDelay (100, [&]
                            {
                                AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+                               ModalComponentManager::getInstance()->bringModalComponentsToFront (false);
                            });
+    
     Timer::callAfterDelay (100, [&]
                            {
                                AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+                               ModalComponentManager::getInstance()->bringModalComponentsToFront (false);
                            });
+    
 
     
     Timer::callAfterDelay (500, [&]
