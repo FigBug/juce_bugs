@@ -16,7 +16,7 @@ public:
         setVisible (true);
         setAlwaysOnTop (true);
         toFront (true);
-        centreWithSize (500, 400);
+        centreWithSize (30, 30);
     }
     
     void paint (Graphics& g) override
@@ -34,6 +34,43 @@ MainComponent::MainComponent()
                            {
                                AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
                            });
+    Timer::callAfterDelay (100, [&]
+                           {
+                               AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+                           });
+    Timer::callAfterDelay (100, [&]
+                           {
+                               AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+                           });
+    Timer::callAfterDelay (100, [&]
+                           {
+                               AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+                           });
+    Timer::callAfterDelay (100, [&]
+                           {
+                               AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+                           });
+    Timer::callAfterDelay (100, [&]
+                           {
+                               AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+                           });
+    Timer::callAfterDelay (100, [&]
+                           {
+                               AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+                           });
+    Timer::callAfterDelay (100, [&]
+                           {
+                               AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+                           });
+    Timer::callAfterDelay (100, [&]
+                           {
+                               AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+                           });
+    Timer::callAfterDelay (100, [&]
+                           {
+                               AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+                           });
+
     
     Timer::callAfterDelay (500, [&]
                            {
