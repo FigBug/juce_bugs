@@ -39,21 +39,25 @@ static inline void addCustomCallback (PopupMenu& m, const String& text, std::fun
     m.addItem (mi);
 }
 
-class AnotherWindow : public TopLevelWindow
+class AnotherWindow : public DocumentWindow
 {
 public:
-    AnotherWindow() : TopLevelWindow ("Another Window", true)
+    AnotherWindow() : DocumentWindow ("Another Window", Colours::pink, DocumentWindow::closeButton, false)
     {
         setVisible (true);
+        toFront (false);
+
+        centreWithSize (30, 30);        
+        
         setAlwaysOnTop (true);
-        toFront (true);
-        centreWithSize (30, 30);
+        addToDesktop();
     }
     
-    void paint (Graphics& g) override
+    void closeButtonPressed() override
     {
-        g.fillAll (Colours::pink);
+        setVisible (false);
     }
+    
 };
 
 class InterrupterComponent : public Component
@@ -84,7 +88,7 @@ void MainComponent::mouseUp (const MouseEvent&)
                                addAndMakeVisible (&c);
                                c.setBounds (getLocalBounds());
                                
-                               int i = 500;
+                               int i = 250;
                                while (--i > 0)
                                    if (! MessageManager::getInstance()->runDispatchLoopUntil (10))
                                        break;
