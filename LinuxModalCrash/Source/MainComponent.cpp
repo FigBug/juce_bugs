@@ -42,15 +42,17 @@ static inline void addCustomCallback (PopupMenu& m, const String& text, std::fun
 class AnotherWindow : public DocumentWindow
 {
 public:
-    AnotherWindow() : DocumentWindow ("Another Window", Colours::pink, DocumentWindow::closeButton, false)
+    AnotherWindow() : DocumentWindow ("Another Window", Colours::grey, DocumentWindow::closeButton, false)
     {
+        setWantsKeyboardFocus (true);
         setVisible (true);
         toFront (false);
 
-        centreWithSize (30, 30);        
+        centreWithSize (400, 350);
         
         setAlwaysOnTop (true);
         addToDesktop();
+        grabKeyboardFocus();
     }
     
     void closeButtonPressed() override
