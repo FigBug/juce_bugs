@@ -36,7 +36,7 @@ MainComponent::~MainComponent()
 }
 
 //==============================================================================
-void MainComponent::mouseDown (const MouseEvent&)
+void MainComponent::mouseUp (const MouseEvent&)
 {
     PopupMenu m;
     m.addItem (1, "Crash");
