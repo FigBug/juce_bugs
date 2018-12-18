@@ -25,6 +25,7 @@ public:
     //==============================================================================
     void paint (Graphics&) override;
     void resized() override;
+    void mouseDown (const MouseEvent&) override;
 
 private:
     //==============================================================================

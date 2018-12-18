@@ -29,73 +29,6 @@ public:
 MainComponent::MainComponent()
 {
     setSize (600, 400);
-    
-    Timer::callAfterDelay (100, [&]
-                           {
-                               AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
-                               ModalComponentManager::getInstance()->bringModalComponentsToFront (false);
-                           });
-    
-    Timer::callAfterDelay (100, [&]
-                           {
-                               AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
-                               ModalComponentManager::getInstance()->bringModalComponentsToFront (false);
-                           });
-    
-    Timer::callAfterDelay (100, [&]
-                           {
-                               AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
-                               ModalComponentManager::getInstance()->bringModalComponentsToFront (false);
-                           });
-    
-    Timer::callAfterDelay (100, [&]
-                           {
-                               AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
-                               ModalComponentManager::getInstance()->bringModalComponentsToFront (false);
-                           });
-    
-    Timer::callAfterDelay (100, [&]
-                           {
-                               AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
-                               ModalComponentManager::getInstance()->bringModalComponentsToFront (false);
-                           });
-    
-    Timer::callAfterDelay (100, [&]
-                           {
-                               AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
-                               ModalComponentManager::getInstance()->bringModalComponentsToFront (false);
-                           });
-    
-    Timer::callAfterDelay (100, [&]
-                           {
-                               AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
-                               ModalComponentManager::getInstance()->bringModalComponentsToFront (false);
-                           });
-    
-    Timer::callAfterDelay (100, [&]
-                           {
-                               AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
-                               ModalComponentManager::getInstance()->bringModalComponentsToFront (false);
-                           });
-    
-    Timer::callAfterDelay (100, [&]
-                           {
-                               AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
-                               ModalComponentManager::getInstance()->bringModalComponentsToFront (false);
-                           });
-    
-    Timer::callAfterDelay (100, [&]
-                           {
-                               AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
-                               ModalComponentManager::getInstance()->bringModalComponentsToFront (false);
-                           });
-    
-
-    
-    Timer::callAfterDelay (500, [&]
-                           {
-                               aw = new AnotherWindow();
-                           });
 }
 
 MainComponent::~MainComponent()
@@ -103,6 +36,18 @@ MainComponent::~MainComponent()
 }
 
 //==============================================================================
+void MainComponent::mouseDown (const MouseEvent&)
+{
+    PopupMenu m;
+    m.addItem (1, "Crash");
+    
+    if (m.show() == 1)
+    {
+        //AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+        aw = new AnotherWindow();
+    }
+}
+
 void MainComponent::paint (Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
