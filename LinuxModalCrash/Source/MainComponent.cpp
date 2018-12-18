@@ -25,6 +25,14 @@ public:
     }
 };
 
+class InterrupterComponent : public Component
+{
+    void paint (Graphics& g) override
+    {
+        g.fillAll (Colours::green);
+    }
+};
+
 //==============================================================================
 MainComponent::MainComponent()
 {
@@ -43,7 +51,18 @@ void MainComponent::mouseUp (const MouseEvent&)
     
     if (m.show() == 1)
     {
-        //AlertWindow::showOkCancelBox (AlertWindow::NoIcon, "Please Wait", "Please Wait");
+        InterrupterComponent c ;
+        addAndMakeVisible (&c);
+        c.setBounds (getLocalBounds());
+        
+        int i = 500;
+        while (--i > 0)
+            if (! MessageManager::getInstance()->runDispatchLoopUntil (10))
+                break;
+        
+        c.exitModalState (0);
+        c.setVisible (false);
+        
         aw = new AnotherWindow();
     }
 }
