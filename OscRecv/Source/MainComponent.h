@@ -32,6 +32,11 @@ public:
         
         ok = send.connect ("127.0.0.1", 34531);
         jassert (ok);
+        
+        is_number ("cow");
+        is_number ("123");
+        is_number ("12cow");
+        is_number ("cow12");
     }
 
     ~MainComponent();
@@ -74,6 +79,20 @@ public:
         for (auto e : bundle)
             if (e.isMessage())
                 oscMessageReceived (e.getMessage());
+    }
+    
+    bool is_number(const juce::String& s)
+    {
+        auto t = s.getCharPointer();
+        while (*t)
+        {
+            if (! t.isDigit())
+                return false;
+            
+            t++;
+        }
+        
+        return true;
     }
 
 private:
