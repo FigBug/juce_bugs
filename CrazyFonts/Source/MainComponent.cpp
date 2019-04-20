@@ -19,7 +19,7 @@ Typeface::Ptr getTypeface()
     static int idx = 0;
     idx++;
     
-    switch (idx % 3)
+    switch (idx % 4)
     {
         case 0:
             return Typeface::createSystemTypefaceFor (BinaryData::OpenSansRegular_ttf, BinaryData::OpenSansRegular_ttfSize);
@@ -27,6 +27,8 @@ Typeface::Ptr getTypeface()
             return Typeface::createSystemTypefaceFor (BinaryData::RobotoMonoRegular_ttf, BinaryData::RobotoMonoRegular_ttfSize);
         case 2:
             return Typeface::createSystemTypefaceFor (BinaryData::TitilliumWebRegular_ttf, BinaryData::TitilliumWebRegular_ttfSize);
+        case 3:
+            return Typeface::createSystemTypefaceFor (BinaryData::RobotoLight_ttf, BinaryData::RobotoLight_ttfSize);
         default:
             return Typeface::createSystemTypefaceFor (BinaryData::TitilliumWebRegular_ttf, BinaryData::TitilliumWebRegular_ttfSize);
     }
@@ -67,7 +69,7 @@ void MainComponent::paint (Graphics& g)
 
             g.setFont (f);
             g.setColour (goldenRatioColor (idx));
-            g.drawText ("Hello World!", rc.removeFromTop (h), Justification::centred, true);
+            g.drawFittedText ("Hello World!", rc.removeFromTop (h), Justification::centred, 1.0);
         }
     }
 }

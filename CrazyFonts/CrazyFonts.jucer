@@ -10,6 +10,8 @@
     </GROUP>
     <FILE id="JATtcp" name="OpenSans-Regular.ttf" compile="0" resource="1"
           file="Source/OpenSans-Regular.ttf"/>
+    <FILE id="kZlHmW" name="Roboto-Light.ttf" compile="0" resource="1"
+          file="Source/Roboto-Light.ttf"/>
     <FILE id="jNn8i2" name="RobotoMono-Regular.ttf" compile="0" resource="1"
           file="Source/RobotoMono-Regular.ttf"/>
     <FILE id="Pgk7Oz" name="TitilliumWeb-Regular.ttf" compile="0" resource="1"

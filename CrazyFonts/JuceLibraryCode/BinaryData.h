@@ -11,6 +11,9 @@ namespace BinaryData
     extern const char*   OpenSansRegular_ttf;
     const int            OpenSansRegular_ttfSize = 217360;
 
+    extern const char*   RobotoLight_ttf;
+    const int            RobotoLight_ttfSize = 140276;
+
     extern const char*   RobotoMonoRegular_ttf;
     const int            RobotoMonoRegular_ttfSize = 114624;
 
@@ -18,7 +21,7 @@ namespace BinaryData
     const int            TitilliumWebRegular_ttfSize = 63728;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 3;
+    const int namedResourceListSize = 4;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
