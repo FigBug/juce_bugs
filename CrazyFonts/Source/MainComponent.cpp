@@ -55,13 +55,19 @@ void MainComponent::paint (Graphics& g)
     
     auto area = getLocalBounds();
     
+    static Array<Typeface::Ptr> typefaces;
+    
     for (int j = 0; j < 10; j++)
     {
         auto rc = area.removeFromLeft (w);
 
-        for (int i = 0; i < 20; i++)
+        for (int i = 0; i < 20; i += 4)
         {
             auto typeface = getTypeface();
+            typefaces.add (typeface);
+            if (typefaces.size() > 100)
+                typefaces.remove (0);
+            
             Font f (typeface);
             
             static int idx = 0;
@@ -69,7 +75,8 @@ void MainComponent::paint (Graphics& g)
 
             g.setFont (f);
             g.setColour (goldenRatioColor (idx));
-            g.drawFittedText ("Hello World!", rc.removeFromTop (h), Justification::centred, 1.0);
+            g.drawFittedText ("Hello World!\nHullo World!\nGoodbye Wolrd!\nPeace out!",
+                              rc.removeFromTop (h * 4), Justification::centred, 4.0);
         }
     }
 }
