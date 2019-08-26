@@ -28,14 +28,16 @@ public:
     {
         // This method is where you should put your application's initialisation code..
 
-        mainWindow = new MainWindow (getApplicationName());
+        mainWindow1 = new MainWindow ("1");
+        mainWindow2 = new MainWindow ("2");
     }
 
     void shutdown() override
     {
         // Add your application's shutdown code here..
 
-        mainWindow = nullptr; // (deletes our window)
+        mainWindow1 = nullptr; // (deletes our window)
+        mainWindow2 = nullptr; // (deletes our window)
     }
 
     //==============================================================================
@@ -70,6 +72,12 @@ public:
             setContentOwned (new MainContentComponent(), true);
 
             centreWithSize (getWidth(), getHeight());
+            
+            if (name == "1")
+                setTopLeftPosition (getX() - getWidth() / 2 - 20, getY());
+            else
+                setTopLeftPosition (getX() + getWidth() / 2 + 20, getY());
+
             setVisible (true);
         }
 
@@ -93,7 +101,7 @@ public:
     };
 
 private:
-    ScopedPointer<MainWindow> mainWindow;
+    ScopedPointer<MainWindow> mainWindow1, mainWindow2;
 };
 
 //==============================================================================
