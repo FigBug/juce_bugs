@@ -38,3 +38,4 @@ Release
 *.opendb
 *.ipch
 FileChooser/Builds/VisualStudio2017/FileChooser_App.vcxproj.user
+xcuserdata
