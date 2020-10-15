@@ -11,7 +11,7 @@
 //==============================================================================
 MainComponent::MainComponent()
 {
-	for (int i = 0; i < 2500; i++)
+	for (int i = 0; i < 5000; i++)
 	{
 		auto s = new Slider();
 		s->setTextBoxStyle (Slider::TextBoxLeft, false, 50, 20);
