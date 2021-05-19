@@ -21,7 +21,7 @@ public:
     bool moreThanOneInstanceAllowed() override             { return true; }
 
     //==============================================================================
-    void initialise (const juce::String& commandLine) override
+    void initialise (const juce::String&) override
     {
         mainWindow.reset (new MainWindow (getApplicationName()));
     }
@@ -37,7 +37,7 @@ public:
         quit();
     }
 
-    void anotherInstanceStarted (const juce::String& commandLine) override
+    void anotherInstanceStarted (const juce::String&) override
     {
     }
 

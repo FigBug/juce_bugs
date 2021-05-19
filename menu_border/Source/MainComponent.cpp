@@ -4,7 +4,15 @@
 MainComponent::MainComponent()
 {
     setLookAndFeel (&lf);
-    setSize (600, 400);
+    addAndMakeVisible(box);
+    setSize (1000, 800);
+
+    if (auto m = box.getRootMenu())
+    {
+        for (int i = 0; i < 150; i++)
+            m->addItem("zug zug " + juce::String(i + 1));
+    }
+    box.setSelectedItemIndex(0, juce::dontSendNotification);
 }
 
 MainComponent::~MainComponent()
@@ -20,37 +28,20 @@ void MainComponent::paint (juce::Graphics& g)
 
 void MainComponent::resized()
 {
+    box.setBounds(getLocalBounds().withSizeKeepingCentre(120, 30).translated(0, 100));
 }
 
-void MainComponent::mouseDown (const juce::MouseEvent& e)
+void MainComponent::mouseDown (const juce::MouseEvent&)
 {
-    if (e.x < getWidth() / 2)
-    {
-        juce::PopupMenu m, s;
-        m.setLookAndFeel (&lf);
+    juce::PopupMenu m, s;
+    m.setLookAndFeel (&lf);
 
-        s.addItem ("Test 1", []{});
-        s.addItem ("Test 2", []{});
-        s.addItem ("Test 3", []{});
-        s.addItem ("Test 3", []{});
+    s.addItem ("Test 1", []{});
+    s.addItem ("Test 2", []{});
+    s.addItem ("Test 3", []{});
+    s.addItem ("Test 3", []{});
 
-        m.addSubMenu ("Test", s);
+    m.addSubMenu ("Test", s);
 
-        m.showMenuAsync (juce::PopupMenu::Options());
-    }
-    else
-    {
-        juce::PopupMenu m;
-        m.setLookAndFeel (&lf);
-
-        for (int i = 0; i < 100; i++)
-        {
-            if (i % 25 == 0)
-                m.addColumnBreak();
-
-            m.addItem ("Test" + juce::String (i + 1), []{});
-        }
-
-        m.showMenuAsync (juce::PopupMenu::Options());
-    }
+    m.showMenuAsync (juce::PopupMenu::Options());
 }
