@@ -7,6 +7,7 @@ MainComponent::MainComponent()
 {
 	words.sortNatural();
 
+	box.setTitle ("animals");
 	box.setModel (this);
 	box.updateContent();
 	addAndMakeVisible (box);
