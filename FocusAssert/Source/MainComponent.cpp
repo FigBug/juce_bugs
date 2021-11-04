@@ -3,9 +3,9 @@
 //==============================================================================
 MainComponent::MainComponent()
 {
-	addAndMakeVisible (text);
-	setFocusContainer(true);
-	setSize (600, 400);
+    addAndMakeVisible (text);
+    setFocusContainer(true);
+    setSize (600, 400);
 }
 
 MainComponent::~MainComponent()
@@ -20,5 +20,5 @@ void MainComponent::paint (juce::Graphics& g)
 
 void MainComponent::resized()
 {
-	text.setBounds (5, 5, 200, 30);
+    text.setBounds (5, 5, 200, 30);
 }

@@ -4,7 +4,7 @@
 
 //==============================================================================
 class MainComponent  : public juce::Component,
-					   private juce::ListBoxModel
+                       private juce::ListBoxModel
 {
 public:
     //==============================================================================
@@ -15,13 +15,13 @@ public:
     void paint (juce::Graphics&) override;
     void resized() override;
 
-	int getNumRows() override;
-	void paintListBoxItem (int rowNumber, juce::Graphics& g, int width, int height, bool rowIsSelected) override;
-	juce::String getNameForRow (int rowNumber) override;
+    int getNumRows() override;
+    void paintListBoxItem (int rowNumber, juce::Graphics& g, int width, int height, bool rowIsSelected) override;
+    juce::String getNameForRow (int rowNumber) override;
 
 private:
     //==============================================================================
-	juce::ListBox box;
+    juce::ListBox box;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };

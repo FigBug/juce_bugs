@@ -5,12 +5,12 @@ juce::StringArray words = { "Cow", "Moose", "Chicken", "Duck", "Clam", "Fish", "
 //==============================================================================
 MainComponent::MainComponent()
 {
-	words.sortNatural();
+    words.sortNatural();
 
-	box.setTitle ("animals");
-	box.setModel (this);
-	box.updateContent();
-	addAndMakeVisible (box);
+    box.setTitle ("animals");
+    box.setModel (this);
+    box.updateContent();
+    addAndMakeVisible (box);
     setSize (600, 400);
 }
 
@@ -26,27 +26,27 @@ void MainComponent::paint (juce::Graphics& g)
 
 void MainComponent::resized()
 {
-	box.setBounds (getLocalBounds());
+    box.setBounds (getLocalBounds());
 }
 
 int MainComponent::getNumRows()
 {
-	return words.size();
+    return words.size();
 }
 
 void MainComponent::paintListBoxItem (int rowNumber, juce::Graphics& g, int width, int height, bool selected)
 {
-	if (selected)
-	{
-		g.setColour (juce::Colours::pink);
-		g.fillRect (0, 0, width, height);
-	}
+    if (selected)
+    {
+        g.setColour (juce::Colours::pink);
+        g.fillRect (0, 0, width, height);
+    }
 
-	g.setColour (juce::Colours::white);
-	g.drawText (words[rowNumber], 0, 0, width, height, juce::Justification::centred);
+    g.setColour (juce::Colours::white);
+    g.drawText (words[rowNumber], 0, 0, width, height, juce::Justification::centred);
 }
 
 juce::String MainComponent::getNameForRow (int rowNumber)
 {
-	return words[rowNumber];
+    return words[rowNumber];
 }

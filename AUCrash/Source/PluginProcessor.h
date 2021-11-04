@@ -52,11 +52,11 @@ public:
     //==============================================================================
     void getStateInformation (juce::MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
-	
-	bool ohShit = false;
+
+    bool ohShit = false;
 
 private:
-	juce::CriticalSection criticalSection;
+    juce::CriticalSection criticalSection;
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AUCrashAudioProcessor)
 };

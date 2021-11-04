@@ -18,6 +18,6 @@ void MainComponent::paint (juce::Graphics& g)
 
 void MainComponent::resized()
 {
-	juce::Grid grid;
-	grid.performLayout ({});
+    juce::Grid grid;
+    grid.performLayout ({});
 }

@@ -11,25 +11,25 @@
 //==============================================================================
 MainComponent::MainComponent()
 {
-	for (int i = 0; i < 5000; i++)
-	{
-		auto s = new Slider();
-		s->setTextBoxStyle (Slider::TextBoxLeft, false, 50, 20);
-		s->setRange ({-1, 1}, 0.5);
-		s->setValue (0.25);
-		sliders.add (s);
-	}
+    for (int i = 0; i < 5000; i++)
+    {
+        auto s = new Slider();
+        s->setTextBoxStyle (Slider::TextBoxLeft, false, 50, 20);
+        s->setRange ({-1, 1}, 0.5);
+        s->setValue (0.25);
+        sliders.add (s);
+    }
 
     setSize (600, 400);
 
-	addActionListener (this);
+    addActionListener (this);
 
-	sendActionMessage ("Start up complete!");
+    sendActionMessage ("Start up complete!");
 }
 
 MainComponent::~MainComponent()
 {
-	removeActionListener (this);
+    removeActionListener (this);
 }
 
 //==============================================================================
@@ -47,7 +47,7 @@ void MainComponent::resized()
 {
 }
 
-void MainComponent::actionListenerCallback (const String& message) 
+void MainComponent::actionListenerCallback (const String& message)
 {
-	text = message;
+    text = message;
 }

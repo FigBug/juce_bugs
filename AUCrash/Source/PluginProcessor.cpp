@@ -148,22 +148,22 @@ juce::AudioProcessorEditor* AUCrashAudioProcessor::createEditor()
 //==============================================================================
 void AUCrashAudioProcessor::getStateInformation (juce::MemoryBlock& destData)
 {
-	destData.setSize (2200);
-	destData.fillWith (0);
+    destData.setSize (2200);
+    destData.fillWith (0);
 }
 
 void AUCrashAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
-	criticalSection.enter();
-	
-	juce::Thread::sleep (1000);
-	
-	uint8_t* p = (uint8_t*)data;
-	for (int i = 0; i < sizeInBytes; i++)
-		if (p[i] != 0)
-			ohShit = true;
+    criticalSection.enter();
 
-	criticalSection.exit();
+    juce::Thread::sleep (1000);
+
+    uint8_t* p = (uint8_t*)data;
+    for (int i = 0; i < sizeInBytes; i++)
+        if (p[i] != 0)
+            ohShit = true;
+
+    criticalSection.exit();
 }
 
 //==============================================================================

@@ -33,7 +33,7 @@ void UpdateDisplayAudioProcessorEditor::paint (Graphics& g)
     g.setColour (Colours::white);
     g.setFont (15.0f);
 
-	auto name = "Current Program: " + processor.getProgramName (processor.getCurrentProgram());
+    auto name = "Current Program: " + processor.getProgramName (processor.getCurrentProgram());
     g.drawFittedText (name, getLocalBounds(), Justification::centred, 1);
 }
 

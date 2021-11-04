@@ -16,8 +16,8 @@
     your controls and content.
 */
 class MainComponent   : public Component,
-						public ActionBroadcaster,
-						public ActionListener
+                        public ActionBroadcaster,
+                        public ActionListener
 {
 public:
     //==============================================================================
@@ -28,13 +28,13 @@ public:
     void paint (Graphics&) override;
     void resized() override;
 
-	void actionListenerCallback (const String& message) override;
+    void actionListenerCallback (const String& message) override;
 
 private:
     //==============================================================================
     // Your private member variables go here...
-	String text;
-	OwnedArray<Slider> sliders;
+    String text;
+    OwnedArray<Slider> sliders;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };

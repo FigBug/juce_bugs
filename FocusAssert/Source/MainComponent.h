@@ -20,7 +20,7 @@ public:
 
 private:
     //==============================================================================
-	juce::TextEditor text;
+    juce::TextEditor text;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };

@@ -14,21 +14,21 @@
 class Foo
 {
 public:
-	~Foo()
-	{
-		DBG("I'm deleted!");
-	}	
+    ~Foo()
+    {
+        DBG("I'm deleted!");
+    }
 
 private:
-	JUCE_LEAK_DETECTOR(Foo);
+    JUCE_LEAK_DETECTOR(Foo);
 };
 
 int main (int argc, char* argv[])
 {
-	OptionalScopedPointer<Foo> foo;
-	foo.set (new Foo(), true);
-	foo.reset();
-	foo.release();
+    OptionalScopedPointer<Foo> foo;
+    foo.set (new Foo(), true);
+    foo.reset();
+    foo.release();
 
     return 0;
 }

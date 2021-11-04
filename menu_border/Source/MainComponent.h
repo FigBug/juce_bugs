@@ -16,34 +16,34 @@ public:
 class WackyComboBox : public juce::ComboBox
 {
 public:
-	void showPopup() override
-	{
-		auto& curMenu = *getRootMenu();
-		const auto	hasItems = curMenu.getNumItems() > 0;
+    void showPopup() override
+    {
+        auto& curMenu = *getRootMenu();
+        const auto  hasItems = curMenu.getNumItems() > 0;
 
-		int columns = 4;
+        int columns = 4;
 
-		juce::PopupMenu& menuToShow = curMenu;
-		menuToShow.setLookAndFeel(&getLookAndFeel());
-		menuToShow.showMenuAsync(juce::PopupMenu::Options()
-			.withTargetComponent(this)
-			.withDeletionCheck(*this)
-			.withItemThatMustBeVisible(getSelectedId())
-			.withMinimumWidth(getWidth())
-			.withMinimumNumColumns(columns)
-			.withMaximumNumColumns(columns == 1 ? 0 : columns),
+        juce::PopupMenu& menuToShow = curMenu;
+        menuToShow.setLookAndFeel(&getLookAndFeel());
+        menuToShow.showMenuAsync(juce::PopupMenu::Options()
+            .withTargetComponent(this)
+            .withDeletionCheck(*this)
+            .withItemThatMustBeVisible(getSelectedId())
+            .withMinimumWidth(getWidth())
+            .withMinimumNumColumns(columns)
+            .withMaximumNumColumns(columns == 1 ? 0 : columns),
 
-			[this](int result)
-			{
-				hidePopup();
+            [this](int result)
+            {
+                hidePopup();
 
-				if (result != 0)
-				{
-					setSelectedId(result);
-				}
-			}
-		);
-	}
+                if (result != 0)
+                {
+                    setSelectedId(result);
+                }
+            }
+        );
+    }
 };
 
 class MainComponent  : public juce::Component

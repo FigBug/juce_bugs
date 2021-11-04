@@ -16,14 +16,14 @@
 /**
 */
 class UpdateDisplayAudioProcessor  : public AudioProcessor,
-									 private Thread
+                                     private Thread
 {
 public:
     //==============================================================================
     UpdateDisplayAudioProcessor();
     ~UpdateDisplayAudioProcessor();
 
-	void run() override;
+    void run() override;
 
     //==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
@@ -58,11 +58,11 @@ public:
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
-	String programName;
+    String programName;
 
 private:
-	void updateProgram();
-	
+    void updateProgram();
+
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (UpdateDisplayAudioProcessor)
 };

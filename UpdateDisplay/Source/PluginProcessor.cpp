@@ -22,49 +22,49 @@ UpdateDisplayAudioProcessor::UpdateDisplayAudioProcessor()
                        .withOutput ("Output", AudioChannelSet::stereo(), true)
                      #endif
                        ),
-	Thread ("UpdateDisplayAudioProcessor")
+    Thread ("UpdateDisplayAudioProcessor")
 #endif
 {
-	updateProgram();
-	startThread ();
+    updateProgram();
+    startThread ();
 }
 
 UpdateDisplayAudioProcessor::~UpdateDisplayAudioProcessor()
 {
-	stopThread (1000);
+    stopThread (1000);
 }
 
 void UpdateDisplayAudioProcessor::run()
 {
-	while (! threadShouldExit())
-	{
-		wait (1000);
-		updateProgram();
-	}
+    while (! threadShouldExit())
+    {
+        wait (1000);
+        updateProgram();
+    }
 }
 
 void UpdateDisplayAudioProcessor::updateProgram()
 {
-	switch (Random::getSystemRandom().nextInt (5))
-	{
-		case 0: programName = "Sine"; break;
-		case 1: programName = "Saw"; break;
-		case 2: programName = "Square"; break;
-		case 3: programName = "Pulse"; break;
-		case 4: programName = "Noise"; break;
-	}
+    switch (Random::getSystemRandom().nextInt (5))
+    {
+        case 0: programName = "Sine"; break;
+        case 1: programName = "Saw"; break;
+        case 2: programName = "Square"; break;
+        case 3: programName = "Pulse"; break;
+        case 4: programName = "Noise"; break;
+    }
 
 #if 1
-	updateHostDisplay();
+    updateHostDisplay();
 #else
-	MessageManager::getInstance()->callAsync ([this] { updateHostDisplay(); });
+    MessageManager::getInstance()->callAsync ([this] { updateHostDisplay(); });
 #endif
 
-	MessageManager::getInstance()->callAsync ([this]
-											  {
-												   if (auto ae = getActiveEditor())
-													   ae->repaint();
-											  });
+    MessageManager::getInstance()->callAsync ([this]
+                                              {
+                                                   if (auto ae = getActiveEditor())
+                                                       ae->repaint();
+                                              });
 }
 
 //==============================================================================
@@ -122,7 +122,7 @@ void UpdateDisplayAudioProcessor::setCurrentProgram (int index)
 
 const String UpdateDisplayAudioProcessor::getProgramName (int index)
 {
-	return programName;
+    return programName;
 }
 
 void UpdateDisplayAudioProcessor::changeProgramName (int index, const String& newName)
