@@ -7,11 +7,16 @@
     This component lives inside our window, and this is where you should put all
     your controls and content.
 */
-class MainComponent  : public juce::Component
+class MainComponent  : public juce::Component, public juce::Timer
 {
 public:
     //==============================================================================
-    MainComponent();
+    MainComponent()
+    {
+        setSize(600, 400);
+        startTimerHz ( 1 );
+    }
+
     ~MainComponent() override;
 
     //==============================================================================
@@ -21,14 +26,18 @@ private:
 
     juce::MouseCursor getMouseCursor () override
     {
-        juce::Image image (juce::Image::ARGB, 32, 32, true);
+        int scale = 1;
+        juce::Image image (juce::Image::ARGB, cx * scale, cx * scale, true);
 
         {
             juce::Graphics g (image);
             g.fillAll (juce::Colours::pink);
         }
 
-        return juce::MouseCursor (image, 0, 0, 2.0f);
+        juce::ScaledImage si (image, scale);
+        DBG(juce::String::formatted ("Getting mouse cursor of size: %d", cx));
+
+        return juce::MouseCursor (si, {0, 0});
     }
 
     void paint (juce::Graphics& g) override
@@ -36,13 +45,25 @@ private:
         auto c1 = getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId);
         auto c2 = c1.overlaidWith (juce::Colours::white.withAlpha (0.5f));
 
-        g.fillCheckerBoard (getLocalBounds().toFloat(), 16, 16, c1, c2);
+        g.fillCheckerBoard (getLocalBounds().toFloat(), cx, cx, c1, c2);
     }
 
     void resized () override
     {
     }
+
+    void timerCallback() override
+    {
+        cx *= 2;
+        if (cx > 128)
+            cx = 1;
+
+        juce::Desktop::getInstance().getMainMouseSource().forceMouseCursorUpdate();
+        repaint ();
+    }
     //==============================================================================
+
+    int cx = 1;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };
