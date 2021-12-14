@@ -26,7 +26,7 @@ private:
 
     juce::MouseCursor getMouseCursor () override
     {
-        int scale = 1;
+        int scale = 2;
         juce::Image image (juce::Image::ARGB, cx * scale, cx * scale, true);
 
         {
