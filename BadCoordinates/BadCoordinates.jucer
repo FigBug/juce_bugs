@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="FOlT5a" name="BadCoordinates" projectType="guiapp" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+  <MAINGROUP id="kk6xg9" name="BadCoordinates">
+    <GROUP id="{376FBB3E-7842-B770-8AF2-FD71B104F289}" name="Source">
+      <FILE id="qDDufY" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <FILE id="ITF8cS" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+      <FILE id="vBklzz" name="MainComponent.cpp" compile="1" resource="0"
+            file="Source/MainComponent.cpp"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="BadCoordinates"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="BadCoordinates"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../dev.github/juce_bugs/JUCE/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../dev.github/juce_bugs/JUCE/modules"/>
+        <MODULEPATH id="juce_events" path="../../dev.github/juce_bugs/JUCE/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../dev.github/juce_bugs/JUCE/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../dev.github/juce_bugs/JUCE/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+</JUCERPROJECT>
