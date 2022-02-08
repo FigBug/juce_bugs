@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT name="OscRecv" projectType="guiapp" jucerVersion="5.2.0">
+<JUCERPROJECT name="OscRecv" projectType="guiapp" id="xBYjXg" jucerFormatVersion="1">
   <MAINGROUP id="ga9WsL" name="OscRecv">
     <GROUP id="{37374F3A-8AA7-E32E-0813-390FDF74E54B}" name="Source">
       <FILE id="syLcNN" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
