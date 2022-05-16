@@ -55,20 +55,20 @@ public:
             setContentOwned (new MainComponent(), true);
 
             setResizable (true, true);
-			setBounds (200, 200, 1000, 1000);
+            setBounds (200, 200, 1000, 1000);
 
-			juce::Timer::callAfterDelay (1000, []
-			{
-				JUCEApplication::getInstance()->systemRequestedQuit();
-			});
+            juce::Timer::callAfterDelay (1000, []
+            {
+                JUCEApplication::getInstance()->systemRequestedQuit();
+            });
         }
 
-		~MainWindow() override
-		{
-			auto str = getWindowStateAsString();
-			printf("%s\n", str.toRawUTF8());
-			jassert (juce::StringArray::fromTokens (str, " ", "").strings.getLast().getIntValue() == getHeight());
-		}
+        ~MainWindow() override
+        {
+            auto str = getWindowStateAsString();
+            printf("%s\n", str.toRawUTF8());
+            jassert (juce::StringArray::fromTokens (str, " ", "").strings.getLast().getIntValue() == getHeight());
+        }
 
         void closeButtonPressed() override
         {
