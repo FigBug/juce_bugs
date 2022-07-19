@@ -23,5 +23,5 @@ void MainComponent::paint (juce::Graphics& g)
 
 void MainComponent::resized()
 {
-	printf ( "resized\n" );
+    printf ( "resized\n" );
 }
