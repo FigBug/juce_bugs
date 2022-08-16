@@ -3,44 +3,90 @@
 #include <JuceHeader.h>
 
 //==============================================================================
-class Bar : public juce::Component,
-			public juce::Timer
+class Bar : public juce::Component, public juce::Timer
 {
 public:
 	Bar ()
 	{
 		setOpaque (true);
-		startTimerHz ( 30 );
+		startTimerHz(60);
 	}
 
 	void timerCallback() override
 	{
-		pos += 0.01f;
-		if (pos > 1.0f)
-			pos -= 1.0f;
 		repaint();
 	}
 
 	void paint (juce::Graphics& g) override
 	{
-		g.fillAll (juce::Colour (4281151797U));
-		g.setColour (juce::Colour (4280337383U));
-		g.fillRect (getLocalBounds().toFloat().withWidth (getWidth() * (1.0 - pos)));
+		g.setColour (juce::Colours::red);
+		g.fillRect (getLocalBounds().expanded (1));
+		g.fillAll (juce::Colours::darkgrey);
+
+		//g.setColour (juce::Colours::darkgrey);
+		//g.fillRect (getLocalBounds().expanded (1));
+
+		g.setColour(juce::Colours::white);
+		g.drawText(getBounds().toString(), getLocalBounds(), juce::Justification::centred, 1);
 	}
 
-	float pos = 0.0f;
+	juce::ComponentDragger myDragger;
+
+	void mouseDown (const juce::MouseEvent& e) override
+	{
+		myDragger.startDraggingComponent (this, e);
+	}
+
+	void mouseDrag (const juce::MouseEvent& e) override
+	{
+		myDragger.dragComponent (this, e, nullptr);
+	}
 };
 
+class Box1 : public juce::Component
+{
+public:
+	void paint (juce::Graphics& g) override
+	{
+		g.fillAll (juce::Colours::white);
+	}
+};
+
+class Box2 : public juce::Component
+{
+public:
+	Box2()
+	{
+		addAndMakeVisible(bar);
+		bar.setBounds (209, 194, 100, 100);
+	}
+
+	void paint (juce::Graphics& g) override
+	{
+		g.fillAll (juce::Colours::black);
+	}
+
+	Bar bar;
+};
 
 //==============================================================================
-class Wrapper : public juce::Component
+class Wrapper : public juce::Component, public juce::Timer
 {
 public:
 	Wrapper ()
 	{
-		setTransform (juce::AffineTransform ().scaled (0.75f));
-		addAndMakeVisible (bar);
-		bar.setBounds (10, 10, 150, 24);
+		setTransform (juce::AffineTransform ().scaled (0.70f));
+
+		addAndMakeVisible (box2);
+		addChildComponent (box1);
+
+		//startTimerHz (1);
+	}
+
+	void timerCallback() override
+	{
+		box1.setVisible (! box1.isVisible());
+		box2.setVisible (! box2.isVisible());
 	}
 
 	void paint ( juce::Graphics& g) override
@@ -48,7 +94,14 @@ public:
 		g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
 	}
 
-	Bar bar;
+	void resized () override
+	{
+		box1.setBounds (getLocalBounds() * 2);
+		box2.setBounds (getLocalBounds() * 2);
+	}
+
+	Box1 box1;
+	Box2 box2;
 };
 
 //==============================================================================
