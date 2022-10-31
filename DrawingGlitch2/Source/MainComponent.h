@@ -6,13 +6,13 @@
 class Bar : public juce::Component
 {
 public:
-	Bar (bool fa) : fillAll (fa)
-	{
-		setOpaque (true);
-	}
+    Bar (bool fa) : fillAll (fa)
+    {
+        setOpaque (true);
+    }
 
-	void paint (juce::Graphics& g) override
-	{
+    void paint (juce::Graphics& g) override
+    {
         if (fillAll)
         {
             g.fillAll (juce::Colours::darkgrey);
@@ -22,19 +22,19 @@ public:
             g.setColour (juce::Colours::darkgrey);
             g.fillRect (getLocalBounds().expanded (100));
         }
-	}
+    }
 
-	juce::ComponentDragger myDragger;
+    juce::ComponentDragger myDragger;
 
-	void mouseDown (const juce::MouseEvent& e) override
-	{
-		myDragger.startDraggingComponent (this, e);
-	}
+    void mouseDown (const juce::MouseEvent& e) override
+    {
+        myDragger.startDraggingComponent (this, e);
+    }
 
-	void mouseDrag (const juce::MouseEvent& e) override
-	{
-		myDragger.dragComponent (this, e, nullptr);
-	}
+    void mouseDrag (const juce::MouseEvent& e) override
+    {
+        myDragger.dragComponent (this, e, nullptr);
+    }
 
     bool fillAll = false;
 };
@@ -43,24 +43,24 @@ public:
 class Wrapper : public juce::Component
 {
 public:
-	Wrapper ()
-	{
-		setTransform (juce::AffineTransform ().scaled (0.70f));
+    Wrapper ()
+    {
+        setTransform (juce::AffineTransform ().scaled (0.70f));
 
-		addAndMakeVisible (bar1);
-		addAndMakeVisible (bar2);
-	}
+        addAndMakeVisible (bar1);
+        addAndMakeVisible (bar2);
+    }
 
-	void paint ( juce::Graphics& g) override
-	{
-		g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
-	}
+    void paint ( juce::Graphics& g) override
+    {
+        g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
+    }
 
-	void resized () override
-	{
+    void resized () override
+    {
         bar1.setBounds (209, 194, 100, 100);
         bar2.setBounds (209, 194 + 105, 100, 100);
-	}
+    }
 
     Bar bar1 { true };
     Bar bar2 { false };
@@ -80,7 +80,7 @@ public:
 
 private:
     //==============================================================================
-	Wrapper wrapper;
+    Wrapper wrapper;
 
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)

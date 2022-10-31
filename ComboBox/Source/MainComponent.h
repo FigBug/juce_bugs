@@ -8,7 +8,7 @@
     your controls and content.
 */
 class MainComponent  : public juce::Component,
-					   private juce::Timer
+                       private juce::Timer
 {
 public:
     //==============================================================================
@@ -18,11 +18,11 @@ public:
     //==============================================================================
     void paint (juce::Graphics&) override;
     void resized() override;
-	void timerCallback() override;
+    void timerCallback() override;
 
 private:
     //==============================================================================
-	juce::ComboBox box;
+    juce::ComboBox box;
 
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)

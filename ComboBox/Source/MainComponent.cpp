@@ -3,17 +3,17 @@
 //==============================================================================
 MainComponent::MainComponent()
 {
-	startTimer (1000);
+    startTimer (1000);
     setSize (600, 400);
 
-	addAndMakeVisible(box);
-	auto& m = *box.getRootMenu();
-	m.addItem (1, "a");
-	m.addItem ("b", [] {});
-	m.addItem (2, "c");
-	m.addItem ("d", [] {});
-	m.addItem (3, "e");
-	m.addItem ("f", [] {});
+    addAndMakeVisible(box);
+    auto& m = *box.getRootMenu();
+    m.addItem (1, "a");
+    m.addItem ("b", [] {});
+    m.addItem (2, "c");
+    m.addItem ("d", [] {});
+    m.addItem (3, "e");
+    m.addItem ("f", [] {});
 }
 
 MainComponent::~MainComponent()
@@ -22,13 +22,13 @@ MainComponent::~MainComponent()
 
 void MainComponent::timerCallback()
 {
-	static int count = 0;
+    static int count = 0;
 
-	juce::StringArray str = { "a", "b", "c", "d", "e", "f" };
+    juce::StringArray str = { "a", "b", "c", "d", "e", "f" };
 
-	box.setText (str[count % str.size()]);
+    box.setText (str[count % str.size()]);
 
-	count++;
+    count++;
 }
 
 //==============================================================================
@@ -39,5 +39,5 @@ void MainComponent::paint (juce::Graphics& g)
 
 void MainComponent::resized()
 {
-	box.setBounds (10, 10, 200, 24);
+    box.setBounds (10, 10, 200, 24);
 }

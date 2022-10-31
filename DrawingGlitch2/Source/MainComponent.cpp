@@ -3,7 +3,7 @@
 //==============================================================================
 MainComponent::MainComponent()
 {
-	addAndMakeVisible (wrapper);
+    addAndMakeVisible (wrapper);
     setSize (600, 400);
 }
 
@@ -19,5 +19,5 @@ void MainComponent::paint (juce::Graphics& g)
 
 void MainComponent::resized()
 {
-	wrapper.setBounds (getLocalBounds());
+    wrapper.setBounds (getLocalBounds());
 }

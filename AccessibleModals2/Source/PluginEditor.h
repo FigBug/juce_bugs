@@ -27,8 +27,8 @@ public:
 private:
     AccessibleModals2AudioProcessor& audioProcessor;
 
-	juce::TextButton open { "open" };
-	juce::Component frame;
+    juce::TextButton open { "open" };
+    juce::Component frame;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AccessibleModals2AudioProcessorEditor)
 };

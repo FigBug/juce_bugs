@@ -3,10 +3,10 @@
 //==============================================================================
 MainComponent::MainComponent()
 {
-	addAndMakeVisible (t1);
-	addAndMakeVisible (t2);
-	t1.setText ("Test1");
-	t2.setText ("Test2");
+    addAndMakeVisible (t1);
+    addAndMakeVisible (t2);
+    t1.setText ("Test1");
+    t2.setText ("Test2");
     setSize (600, 400);
 }
 
@@ -22,8 +22,8 @@ void MainComponent::paint (juce::Graphics& g)
 
 void MainComponent::resized()
 {
-	auto rc = getLocalBounds().reduced (8);
-	t1.setBounds (rc.removeFromTop (24));
-	rc.removeFromTop (8);
-	t2.setBounds(rc.removeFromTop (24));
+    auto rc = getLocalBounds().reduced (8);
+    t1.setBounds (rc.removeFromTop (24));
+    rc.removeFromTop (8);
+    t2.setBounds(rc.removeFromTop (24));
 }

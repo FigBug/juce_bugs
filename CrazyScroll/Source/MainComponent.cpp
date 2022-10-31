@@ -3,35 +3,35 @@
 class Frame : public juce::Component
 {
 public:
-	Frame()
-	{
-		setSize(2000, 100);
+    Frame()
+    {
+        setSize(2000, 100);
 
-		for (int i = 0; i < 20; i++)
-		{
-			auto b = new juce::TextButton ("hi");
-			b->setBounds(i * 100, 0, 100, 24);
-			b->onClick = [b]
-			{
-				delete b;
-			};
-			addAndMakeVisible (b);
-		}
-	}
+        for (int i = 0; i < 20; i++)
+        {
+            auto b = new juce::TextButton ("hi");
+            b->setBounds(i * 100, 0, 100, 24);
+            b->onClick = [b]
+            {
+                delete b;
+            };
+            addAndMakeVisible (b);
+        }
+    }
 
-	~Frame() override
-	{
-		deleteAllChildren();
-	}
+    ~Frame() override
+    {
+        deleteAllChildren();
+    }
 };
 
 //==============================================================================
 MainComponent::MainComponent()
 {
     setSize (600, 400);
-	addAndMakeVisible (viewport);
-	viewport.setViewedComponent (new Frame());
-	viewport.setScrollOnDragMode (juce::Viewport::ScrollOnDragMode::all);
+    addAndMakeVisible (viewport);
+    viewport.setViewedComponent (new Frame());
+    viewport.setScrollOnDragMode (juce::Viewport::ScrollOnDragMode::all);
 }
 
 MainComponent::~MainComponent()
@@ -46,5 +46,5 @@ void MainComponent::paint (juce::Graphics& g)
 
 void MainComponent::resized()
 {
-	viewport.setBounds (getLocalBounds());
+    viewport.setBounds (getLocalBounds());
 }

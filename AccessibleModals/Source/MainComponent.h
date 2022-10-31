@@ -20,7 +20,7 @@ public:
 
 private:
     //==============================================================================
-	juce::TextButton open { "open" };
+    juce::TextButton open { "open" };
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };

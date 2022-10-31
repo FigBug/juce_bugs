@@ -5,10 +5,10 @@
 class MyButton : public juce::ToggleButton
 {
 public:
-	void buttonStateChanged	() override
-	{
-		DBG("buttonStateChanged");
-	}
+    void buttonStateChanged () override
+    {
+        DBG("buttonStateChanged");
+    }
 };
 
 //==============================================================================
@@ -29,7 +29,7 @@ public:
 
 private:
     //==============================================================================
-	MyButton myButton;
+    MyButton myButton;
 
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)

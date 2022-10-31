@@ -4,7 +4,7 @@
 MainComponent::MainComponent()
 {
     setSize (600, 400);
-	addAndMakeVisible(myButton);
+    addAndMakeVisible(myButton);
 }
 
 MainComponent::~MainComponent()
@@ -22,5 +22,5 @@ void MainComponent::paint (juce::Graphics& g)
 
 void MainComponent::resized()
 {
-	myButton.setBounds(10, 10, 500, 24);
+    myButton.setBounds(10, 10, 500, 24);
 }
