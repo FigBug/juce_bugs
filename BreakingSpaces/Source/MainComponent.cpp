@@ -1,8 +1,12 @@
 #include "MainComponent.h"
+#include "font_roboto_medium.h"
 
 //==============================================================================
 MainComponent::MainComponent()
 {
+    auto tf = juce::Typeface::createSystemTypefaceFor (RobotoMedium_ttf, sizeof (RobotoMedium_ttf));
+    font = juce::Font(tf);
+
     setSize (600, 400);
 }
 
@@ -27,6 +31,7 @@ void MainComponent::paint (juce::Graphics& g)
     auto text = juce::String ("Artist_Series 7_Skies_2");
     text = text.replace ( "_", juce::CharPointer_UTF8 ( "\xc2\xa0" ) );
 
+    //g.setFont(font);
     g.drawFittedText ( text, rc, juce::Justification::centred, 3, 1.0f );
 }
 
