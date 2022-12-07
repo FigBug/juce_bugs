@@ -5,6 +5,7 @@ MainComponent::MainComponent()
 {
 	box.setModel (this);
 	box.updateContent();
+	box.setWantsKeyboardFocus(true);
 	addAndMakeVisible (box);
     setSize (600, 400);
 }
