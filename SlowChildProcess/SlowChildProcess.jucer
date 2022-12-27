@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<JUCERPROJECT id="VNXiQQ" name="SlowChildProcess" projectType="guiapp" useAppConfig="0"
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1">
+  <MAINGROUP id="Xp3Av1" name="SlowChildProcess">
+    <GROUP id="{DF35204F-0D64-5042-2B66-B16201F14198}" name="Source">
+      <FILE id="oN5Czp" name="Main.cpp" compile="1" resource="0" file="Source/Main.cpp"/>
+      <FILE id="oITCGM" name="MainComponent.h" compile="0" resource="0" file="Source/MainComponent.h"/>
+      <FILE id="bpaFHe" name="MainComponent.cpp" compile="1" resource="0"
+            file="Source/MainComponent.cpp"/>
+    </GROUP>
+  </MAINGROUP>
+  <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
+  <EXPORTFORMATS>
+    <XCODE_MAC targetFolder="Builds/MacOSX">
+      <CONFIGURATIONS>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="SlowChildProcess"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="SlowChildProcess"/>
+      </CONFIGURATIONS>
+      <MODULEPATHS>
+        <MODULEPATH id="juce_core" path="../../Gin/juce/modules"/>
+        <MODULEPATH id="juce_data_structures" path="../../Gin/juce/modules"/>
+        <MODULEPATH id="juce_events" path="../../Gin/juce/modules"/>
+        <MODULEPATH id="juce_graphics" path="../../Gin/juce/modules"/>
+        <MODULEPATH id="juce_gui_basics" path="../../Gin/juce/modules"/>
+      </MODULEPATHS>
+    </XCODE_MAC>
+  </EXPORTFORMATS>
+  <MODULES>
+    <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+  </MODULES>
+</JUCERPROJECT>
