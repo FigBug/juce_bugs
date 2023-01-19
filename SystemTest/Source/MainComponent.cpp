@@ -4,6 +4,12 @@
 MainComponent::MainComponent()
 {
     setSize (600, 400);
+
+	auto start = juce::Time::getCurrentTime();
+	system("whoami");
+	auto end = juce::Time::getCurrentTime();
+
+	delta = (end - start).inSeconds();
 }
 
 MainComponent::~MainComponent()
@@ -18,7 +24,7 @@ void MainComponent::paint (juce::Graphics& g)
 
     g.setFont (juce::Font (16.0f));
     g.setColour (juce::Colours::white);
-    g.drawText ("Hello World!", getLocalBounds(), juce::Justification::centred, true);
+    g.drawText (juce::String(delta) + "s", getLocalBounds(), juce::Justification::centred, true);
 }
 
 void MainComponent::resized()
