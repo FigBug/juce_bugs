@@ -4,12 +4,6 @@
 MainComponent::MainComponent()
 {
     setSize (600, 400);
-
-    auto start = juce::Time::getCurrentTime();
-    system ("whoami");
-    auto end = juce::Time::getCurrentTime();
-
-    DBG((end - start).getDescription());
 }
 
 MainComponent::~MainComponent()
