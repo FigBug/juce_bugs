@@ -8,6 +8,7 @@ MainComponent::MainComponent()
 		addAndMakeVisible(b);
 		b->setRadioGroupId(1);
 		b->setClickingTogglesState(true);
+		b->setToggleable(true);
 	}
 
     setSize (600, 400);
@@ -27,7 +28,7 @@ void MainComponent::paint (juce::Graphics& g)
 void MainComponent::resized()
 {
 	auto rc = getLocalBounds();
-	
+
 	for (auto b : buttons)
 		b->setBounds(rc.removeFromTop ( 15));
 }
