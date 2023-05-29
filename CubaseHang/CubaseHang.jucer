@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="GNfMwv" name="CubaseHang" projectType="audioplug" useAppConfig="0"
-              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" pluginFormats="buildVST3">
+              addUsingNamespaceToJuceHeader="0" jucerFormatVersion="1" pluginFormats="buildStandalone,buildVST3">
   <MAINGROUP id="toA4Fc" name="CubaseHang">
     <GROUP id="{0B7D8217-6797-FAD8-8CA1-6780B6A80CB7}" name="Source">
       <FILE id="NQJk31" name="PluginProcessor.cpp" compile="1" resource="0"
