@@ -1,3 +1,7 @@
+Date:
+
+Oct 11, 2023
+
 JUCE version: 
 
 * commit 86d496d424f5587756b856acf17a3d1bb6456ece (HEAD -> develop, origin/develop)
@@ -14,7 +18,9 @@ OS:
 
 Description:
 
-ComboBox selection does not work if the menu has to scroll all the way to the top. If user goes from last entry to first, it will not work. If they go from last entry to somewhere in the middle, and then from middle to first, it will work.
+ComboBox selection does not work if the menu is over the macOS menu bar. `mainMenuTrackingBegan` is called which calls `PopupMenu::dismissAllActiveMenus();` before the `PopupMenu` has time to handle the mouse click.
+
+Code to reproduce:
 
 * Video:
 

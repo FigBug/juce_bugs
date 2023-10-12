@@ -11,8 +11,6 @@ MainComponent::MainComponent()
     for (int i = 0; i < 112; i++)
     {
         box.addItem ("id: " + juce::String (i + 1), i + 1);
-        if (i == 0)
-            box.addSeparator();
     }
     box.setSelectedItemIndex (111);
 
