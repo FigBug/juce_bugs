@@ -27,8 +27,10 @@
     </VS2022>
     <XCODE_MAC targetFolder="Builds/MacOSX">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" targetName="RadioButtons"/>
-        <CONFIGURATION isDebug="0" name="Release" targetName="RadioButtons"/>
+        <CONFIGURATION isDebug="1" name="Debug" targetName="RadioButtons" macOSDeploymentTarget="14.0"
+                       osxCompatibility="14.0 SDK"/>
+        <CONFIGURATION isDebug="0" name="Release" targetName="RadioButtons" macOSDeploymentTarget="14.0"
+                       osxCompatibility="14.0 SDK"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
         <MODULEPATH id="juce_core" path="../JUCE/modules"/>

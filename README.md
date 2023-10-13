@@ -1,3 +1,15 @@
-# juce_bugs
+# Date:
 
-This is where I put test programs when I am trying to reprouce juce bugs
+
+
+# Description:
+
+
+
+# Forum
+
+
+
+# Status
+
+Fixed in
