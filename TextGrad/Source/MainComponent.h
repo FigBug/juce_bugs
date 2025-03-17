@@ -11,12 +11,7 @@ public:
 
     void paint (juce::Graphics& g)
     {
-        auto bounds = getLocalBounds();
-
-        g.setColour (juce::Colours::white);
-        g.drawRect (getLocalBounds(), 2);
-
-        g.reduceClipRegion (bounds);
+        auto bounds = getLocalBounds().toFloat();
 
 	    auto c1 = juce::Colours::red;
 	    auto c2 = juce::Colours::green;
@@ -26,20 +21,58 @@ public:
         g.drawRect (gradRect, 2);
 
 	    auto grad1 = juce::ColourGradient::horizontal (c1, c2, gradRect);
-        auto grad2 = juce::ColourGradient::horizontal (c1, c2, getLocalBounds()); 
 
-        grad2.addColour (gradRect.getX() / float (bounds.getWidth()), c1);
-        grad2.addColour (gradRect.getRight() / float (bounds.getWidth()), c2);
-
-	    g.setFont (juce::Font (juce::FontOptions(40)));
-
-        auto rc = getLocalBounds();
+	    g.setFont (juce::Font (juce::FontOptions(15)));
 
         g.setGradientFill (grad1);
-        g.drawText ("Hello World! Hello World!", rc.removeFromTop (rc.getHeight() / 2), juce::Justification::centred, false);
-        g.setGradientFill (grad2);
-        g.drawText ("Hello World! Hello World!", rc, juce::Justification::centred, false);
+
+        g.drawText ("Hello World! Hello World! Hello World! Hello World! Hello World! Hello World!", gradRect, juce::Justification::centred, false);
     }
+};
+
+class Box : public juce::ListBox, 
+			public juce::ListBoxModel
+{
+public:
+	Box ()
+	{
+		setModel (this);
+	}
+
+	int	getNumRows () override
+	{ 
+		return 500;
+	}
+ 
+	void paintListBoxItem (int rowNumber, juce::Graphics &g, int width, int height, bool rowIsSelected) override
+	{
+		auto bounds = juce::Rectangle<float> (0, 0, width, height);
+
+	    auto c1 = juce::Colours::red;
+	    auto c2 = juce::Colours::green;
+
+	    auto gradRect = bounds.withSizeKeepingCentre (bounds.getWidth() / 2, bounds.getHeight());
+        g.setColour (juce::Colours::white.withAlpha (0.2f));
+        g.drawRect (gradRect, 2);
+
+	    auto grad1 = juce::ColourGradient::horizontal (c1, c2, gradRect);
+
+	    g.setFont (juce::Font (juce::FontOptions(15)));
+
+        g.setGradientFill (grad1);
+
+        g.drawText ("Hello World! Hello World! Hello World! Hello World! Hello World! Hello World!", gradRect, juce::Justification::centred, false);
+	}
+ 	
+	juce::Component* refreshComponentForRow (int rowNumber, bool isRowSelected, Component *existingComponentToUpdate) override
+	{
+		return nullptr;
+
+		//if (existingComponentToUpdate == nullptr)
+		//	return new Test();
+
+		//return existingComponentToUpdate;
+	}
 };
 
 //==============================================================================
@@ -59,8 +92,8 @@ public:
     void resized() override;
 
 private:
-    Test test;
-
+	juce::Component scaler;
+    Box box;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };

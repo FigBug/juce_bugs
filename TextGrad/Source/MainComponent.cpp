@@ -3,7 +3,12 @@
 //==============================================================================
 MainComponent::MainComponent()
 {
-    addAndMakeVisible(test);
+    scaler.addAndMakeVisible (box);
+	box.setBounds (20, 20, 650, 400);
+
+	addAndMakeVisible (scaler);
+	scaler.setSize (650, 400);
+
     setSize (650, 400);
 }
 
@@ -19,5 +24,6 @@ void MainComponent::paint (juce::Graphics& g)
 
 void MainComponent::resized()
 {
-    test.setBounds (getLocalBounds().withSizeKeepingCentre (getWidth()/2, getHeight()/2));
+    auto scale = int (float (getWidth()) / 650 * 10) / 10.0f;
+	scaler.setTransform (juce::AffineTransform().scaled (scale));
 }
