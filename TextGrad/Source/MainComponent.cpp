@@ -3,8 +3,8 @@
 //==============================================================================
 MainComponent::MainComponent()
 {
-    scaler.addAndMakeVisible (box);
-	box.setBounds (20, 20, 650, 400);
+    scaler.addAndMakeVisible (test);
+	test.setBounds (0, 0, 650, 400);
 
 	addAndMakeVisible (scaler);
 	scaler.setSize (650, 400);

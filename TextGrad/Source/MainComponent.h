@@ -22,57 +22,12 @@ public:
 
 	    auto grad1 = juce::ColourGradient::horizontal (c1, c2, gradRect);
 
-	    g.setFont (juce::Font (juce::FontOptions(15)));
+	    g.setFont (juce::Font (juce::FontOptions(40)));
 
         g.setGradientFill (grad1);
 
         g.drawText ("Hello World! Hello World! Hello World! Hello World! Hello World! Hello World!", gradRect, juce::Justification::centred, false);
     }
-};
-
-class Box : public juce::ListBox, 
-			public juce::ListBoxModel
-{
-public:
-	Box ()
-	{
-		setModel (this);
-	}
-
-	int	getNumRows () override
-	{ 
-		return 500;
-	}
- 
-	void paintListBoxItem (int rowNumber, juce::Graphics &g, int width, int height, bool rowIsSelected) override
-	{
-		auto bounds = juce::Rectangle<float> (0, 0, width, height);
-
-	    auto c1 = juce::Colours::red;
-	    auto c2 = juce::Colours::green;
-
-	    auto gradRect = bounds.withSizeKeepingCentre (bounds.getWidth() / 2, bounds.getHeight());
-        g.setColour (juce::Colours::white.withAlpha (0.2f));
-        g.drawRect (gradRect, 2);
-
-	    auto grad1 = juce::ColourGradient::horizontal (c1, c2, gradRect);
-
-	    g.setFont (juce::Font (juce::FontOptions(15)));
-
-        g.setGradientFill (grad1);
-
-        g.drawText ("Hello World! Hello World! Hello World! Hello World! Hello World! Hello World!", gradRect, juce::Justification::centred, false);
-	}
- 	
-	juce::Component* refreshComponentForRow (int rowNumber, bool isRowSelected, Component *existingComponentToUpdate) override
-	{
-		return nullptr;
-
-		//if (existingComponentToUpdate == nullptr)
-		//	return new Test();
-
-		//return existingComponentToUpdate;
-	}
 };
 
 //==============================================================================
@@ -93,7 +48,7 @@ public:
 
 private:
 	juce::Component scaler;
-    Box box;
+	Test test;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };
