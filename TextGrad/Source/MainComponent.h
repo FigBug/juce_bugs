@@ -27,6 +27,8 @@ public:
         g.setGradientFill (grad1);
 
         g.drawText ("Hello World! Hello World! Hello World! Hello World! Hello World! Hello World!", gradRect, juce::Justification::centred, false);
+
+		g.drawRect (gradRect, 5.0f);
     }
 };
 
