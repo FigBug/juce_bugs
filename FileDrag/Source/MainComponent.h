@@ -52,7 +52,7 @@ public:
 		setSize (1000, 1000);
 
 		addAndMakeVisible (target);
-		target.setBounds (600, 600, 100, 100);
+		target.setBounds (200, 200, 100, 100);
 	}
 
 	~Frame() override
