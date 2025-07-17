@@ -8,6 +8,16 @@ MainComponent::MainComponent()
 	image = juce::ImageFileFormat::loadFrom(BinaryData::pikachu_png, BinaryData::pikachu_pngSize);
 
 	startTimerHz(60);
+
+	juce::Timer::callAfterDelay ( 5000, [ this ]
+		{
+			if ( auto peer = getPeer())
+			{
+				auto engines = peer->getAvailableRenderingEngines ();
+
+				peer->setCurrentRenderingEngine ( engines.indexOf ( "Software Renderer" ) );
+			}
+		} );
 }
 
 MainComponent::~MainComponent()
