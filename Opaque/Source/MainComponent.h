@@ -15,7 +15,7 @@ public:
     void paint (juce::Graphics& g) override
     {
         if (isMouseOver)
-            g.setColour (colour.brighter (0.3f));
+            g.setColour (colour.withRotatedHue (0.3f));
         else
             g.setColour (colour);
 
@@ -86,7 +86,11 @@ public:
     NestedComponent (int level, juce::Colour componentColour)
         : nestingLevel (level), colour (componentColour)
     {
-        setOpaque (true);
+		if (level != 1)
+			setOpaque (true);
+
+		if (level == 2)
+			setTransform(juce::AffineTransform().scaled(0.5f, 0.5f));
 
         // Create the next level if we haven't reached the bottom
         if (level < 4)
@@ -122,7 +126,7 @@ public:
         if (nextLevel != nullptr)
             nextLevel->setBounds (getLocalBounds());
         if (tabBar != nullptr)
-            tabBar->setBounds (getLocalBounds());
+            tabBar->setBounds (getLocalBounds().reduced (50).removeFromTop (100).withTrimmedRight(50));
     }
 
 private:
